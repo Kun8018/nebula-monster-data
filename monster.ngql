@@ -1,11 +1,12 @@
 drop space Game_Monsters;
 create space Game_Monsters(partition_num=10,replica_factor=1,vid_type=fixed_string(32));
 :sleep 20
+GRANT ROLE USER ON Game_Monsters TO demo1;
 use Game_Monsters;
 create tag person(name string, city string, belongto string);
 create tag monster(name string, property string, attack int, defend int);
 create tag property(name string);
-create tag&normal();
+create tag normal();
 create tag bug();
 create tag grass();
 create tag fighting();
