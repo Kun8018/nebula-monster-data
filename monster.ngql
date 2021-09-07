@@ -32,8 +32,18 @@ create edge own();
 create edge damage(degree string);
 create edge evolves_to(trigger string, min_level int,monstergo_candy int);
 :sleep 20
-create tag index normal() on bug();
-create tag index player_index_1 on property(name(20));
+Create TAG INDEX attack on monster(attack)
+REBUILD TAG INDEX attack;
+Create TAG INDEX defend on monster(defend)
+REBUILD TAG INDEX defend;
+Create TAG INDEX name on monster(name(8))
+REBUILD TAG INDEX name;
+Create TAG INDEX person_belongto on person(belongto(8))
+REBUILD TAG INDEX person_belongto;
+Create TAG INDEX person_city on person(city(8))
+REBUILD TAG INDEX person_city;
+Create TAG INDEX person_name on person(name(8))
+REBUILD TAG INDEX person_name;
 :sleep 20
 insert vertex person(name,city,belongto) values "person1":("Brock","Pewte_City", "Boulder_Badge");
 insert vertex person(name,city,belongto) values "person2":("Misty","Cerulean_City", "Cascade_Badge");
